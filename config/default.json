@@ -1,0 +1,6 @@
+{
+    "mongoURI": "mongodb+srv://karishma123:karishma123@social-media.du6tn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "jwtSecret": "secrettoken",
+    "githubClientId":"70b5aabbc3bb016291bb",
+    "githubClientSecret": "511d1c8cc2711784cd4e1a4863e0ffbf75b2d5b9"
+}
