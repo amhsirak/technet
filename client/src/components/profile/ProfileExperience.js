@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import formatDate from '../../utils/formatDate';
+import { Fragment } from 'react';
 
 const ProfileExperience = ({
   experience: { company, title, location, current, to, from, description }
 }) => (
   <div>
-    <h3 className="text-dark">{company}</h3>
+    <h3 className="text-dark">Worked at {company}</h3>
     <p>
       {formatDate(from)} - {to ? formatDate(to) : 'Now'}
     </p>
@@ -14,10 +15,18 @@ const ProfileExperience = ({
       <strong>Position: </strong> {title}
     </p>
     <p>
-      <strong>Location: </strong> {location}
+      {location ? (
+        <Fragment>
+          <strong>Location:</strong> {location}
+        </Fragment>
+      ) : (null)}
     </p>
     <p>
-      <strong>Description: </strong> {description}
+    {description ? (
+        <Fragment>
+          <strong>Description:</strong> {description}
+        </Fragment>
+      ): (null)}
     </p>
   </div>
 );

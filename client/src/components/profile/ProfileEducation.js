@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import formatDate from '../../utils/formatDate';
 
@@ -17,7 +17,11 @@ const ProfileEducation = ({
       <strong>Field Of Study: </strong> {fieldofstudy}
     </p>
     <p>
-      <strong>Description: </strong> {description}
+    {description ? (
+        <Fragment>
+          <strong>Description:</strong> {description}
+        </Fragment>
+      ) : (null)}
     </p>
   </div>
 );
