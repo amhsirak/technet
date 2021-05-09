@@ -2,7 +2,7 @@ import React , { Fragment, useState }from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { addExperience } from '../../actions/profile'
+import { addExperience } from '../../actions/profile';
 
 const AddExperience = ({addExperience, history}) => {
 
@@ -18,11 +18,19 @@ const AddExperience = ({addExperience, history}) => {
 
     const [toDateDisabled, toggleDisabled] = useState(false);
 
-    const { company , title, location, from, to, current, description } = formData;
+    const { 
+      company, 
+      title, 
+      location, 
+      from, 
+      to, 
+      current, 
+      description 
+    } = formData;
 
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value});
 
-    const onSubmit = e => {
+    const onSubmit = (e) => {
       e.preventDefault();
       addExperience(formData,history);
     }
@@ -107,4 +115,4 @@ AddExperience.propTypes = {
     addExperience: PropTypes.func.isRequired
 }
 
-export default connect(null, { addExperience })(AddExperience);
+export default connect(null, { addExperience })(withRouter(AddExperience));
