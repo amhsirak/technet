@@ -80,7 +80,7 @@ const ProfileForm = ({
           <input 
           type="text" 
           name="status" 
-          placeholder="Professional Status"
+          placeholder="Professional Status *"
           value={status} 
           onChange={onChange}
           />
@@ -127,7 +127,7 @@ const ProfileForm = ({
         <div className="form-group">
           <input
             type="text"
-            placeholder="* Skills"
+            placeholder="Skills *"
             name="skills"
             value={skills}
             onChange={onChange}
@@ -167,7 +167,7 @@ const ProfileForm = ({
           >
             Add Social Network Links
           </button>
-          <span>Optional</span>
+          <span>(Optional)</span>
         </div>
 
         {displaySocialInputs && (
