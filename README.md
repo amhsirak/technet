@@ -3,7 +3,7 @@ User registration & login
 
 User profiles
 
-Can Post, Like and Comment
+Posts, Like and Comment
 
 # Tech Stack:
 React, Redux, Node.js, Express & MongoDB
