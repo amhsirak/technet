@@ -5,9 +5,13 @@ Tech Net is a social networking platform for tech enthusiasts. Create profiles ,
 ## Tech Stack
 
 React
+
 Redux ( for state management ) 
+
 Node.js
-Express 
+
+Express
+
 MongoDB
 
 ##  Features
