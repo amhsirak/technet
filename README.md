@@ -38,5 +38,5 @@ Social Login
 
 Changes in UI 
 
-#### Note: This project is still being built using and hence the README might be not so detailed.
+## *Note: This project is still being built using and hence the README might be not so detailed.*
 
