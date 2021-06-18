@@ -30,13 +30,5 @@ Clone the repository:
 git clone https://github.com/karishmas6/technet.git
 ```
 
-
-## To Do
-Image Upload
-
-Social Login
-
-Changes in UI 
-
  *Note: This project is still being built and hence the README might be not so detailed.*
 
