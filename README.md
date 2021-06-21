@@ -16,11 +16,9 @@ MongoDB
 
 ##  Features
 
-User authentication
-
-User profiles
-
-Posts, Like and Comment
+* User authentication
+* User profiles
+* Posts, Like and Comment
 
 ## To Try This On Your Own 
 
@@ -30,5 +28,4 @@ Clone the repository:
 git clone https://github.com/karishmas6/technet.git
 ```
 
- *Note: This project is still being built and hence the README might be not so detailed.*
 
