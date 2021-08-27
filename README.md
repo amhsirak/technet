@@ -16,7 +16,7 @@ Create profiles, make an impressive portfolio and connect with other techies!
 * User authentication
 * User profiles
 * Posts, Like and Comment
-* Showcase your GitHub repositories in your profile
+* Showcase GitHub repositories in your profile
 
 ## To Try This On Your Own 
 
