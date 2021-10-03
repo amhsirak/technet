@@ -2,10 +2,8 @@
 
 <a href="https://github.com/karishmashuklaa/technet/stargazers"><img src="https://img.shields.io/github/stars/karishmashuklaa/technet" alt="Stars Badge"/></a>
 <a href="https://github.com/karishmashuklaa/technet/network/members"><img src="https://img.shields.io/github/forks/karishmashuklaa/technet" alt="Forks Badge"/></a>
-<a href="https://github.com/karishmashuklaa/technet/pulls"><img src="https://img.shields.io/github/issues-pr/karishmashuklaa/technet" alt="Pull Requests Badge"/></a>
 <a href="https://github.com/karishmashuklaa/technet/issues"><img src="https://img.shields.io/github/issues/karishmashuklaa/technet" alt="Issues Badge"/></a>
 <a href="https://github.com/karishmashuklaa/technet/graphs/contributors"><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/karishmashuklaa/technet?color=2b9348"></a>
-<a href="https://github.com/karishmashuklaa/technet/blob/master/LICENSE"><img src="https://img.shields.io/github/license/karishmashuklaa/technet?color=2b9348" alt="License Badge"/></a>
 
 ## Description 📝
 
@@ -37,5 +35,13 @@ git clone https://github.com/karishmashuklaa/technet.git
 - `npm install` to install dependencies
 - `npm install` in `client` folder to install dependencies
 - `npm run dev` to run the project
+
+## 💗 Contributors
+
+Thank you to everyone contributing! ❤️
+
+<a href="https://github.com/karishmashuklaa/technet/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=karishmashuklaa/technet" />
+</a>
 
 ***Thanks for reading! ⭐ Don't forget to star the [Repository](https://github.com/karishmashuklaa/technet) ⭐***
