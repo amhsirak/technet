@@ -36,7 +36,7 @@ git clone https://github.com/karishmashuklaa/technet.git
 - `npm install` in `client` folder to install dependencies
 - `npm run dev` to run the project
 
-## 💗 Contributors
+## Contributors 💗
 
 Thank you to everyone contributing! ❤️
 
