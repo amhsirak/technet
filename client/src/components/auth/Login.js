@@ -31,14 +31,19 @@ if(isAuthenticated){
         <form className="form" onSubmit={onSubmit}>
          
           <div className="form-group">
+            <div className="input-container">
+            <i class="fas fa-envelope"></i>              
             <input type="email" 
             placeholder="Email Address" 
             name="email"
             value={email} 
             onChange = {handleChange} 
             required />
+            </div>
           </div>
           <div className="form-group">
+            <div className="input-container">
+            <i class="fas fa-lock"></i>              
             <input
               type="password"
               placeholder="Password"
@@ -46,7 +51,8 @@ if(isAuthenticated){
               value={password} 
               onChange = {handleChange} 
               minLength="6"
-              required />
+              required />              
+          </div>
           </div>
           <input type="submit" className="btn btn-primary" value="Login" />
         </form>
