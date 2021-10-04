@@ -1,8 +1,9 @@
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import React, { Fragment, useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import { login } from '../../actions/auth';
+import InputStyled from '../../components/common/InputStyled';
 
 const Login = ({ login,isAuthenticated }) => {
     const[formData, setFormData] = useState({
@@ -31,19 +32,22 @@ if(isAuthenticated){
         <form className="form" onSubmit={onSubmit}>
          
           <div className="form-group">
-            <input type="email" 
-            placeholder="Email Address" 
-            name="email"
-            value={email} 
-            onChange = {handleChange} 
-            required />
+            <InputStyled 
+              type="email" 
+              placeholder="Email Address" 
+              name="email"
+              value={email}
+              size="small"
+              onChange = {handleChange} 
+              required />
           </div>
           <div className="form-group">
-            <input
+            <InputStyled
               type="password"
               placeholder="Password"
               name="password"
               value={password} 
+              size="small"
               onChange = {handleChange} 
               minLength="6"
               required />

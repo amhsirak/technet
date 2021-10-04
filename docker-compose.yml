@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  mongodb:
+    image : mongo
+    container_name: technet-mongodb
+    environment:
+      - PUID=1000
+      - PGID=1000
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo-data:/data/db
+volumes:
+  mongo-data:

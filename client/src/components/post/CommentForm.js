@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import TextareaAutosize from '@mui/material/TextareaAutosize';
 import { addComment } from '../../actions/post';
 
 const CommentForm = ({ postId, addComment }) => {
@@ -19,10 +20,11 @@ const CommentForm = ({ postId, addComment }) => {
           setText('');
         }}
       >
-        <textarea
+        <TextareaAutosize
           name='text'
           cols='30'
-          rows='5'
+          minRows='5'
+          style={{padding: "1rem"}}
           placeholder='Comment the post'
           value={text}
           onChange={e => setText(e.target.value)}

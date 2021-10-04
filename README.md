@@ -29,4 +29,14 @@ git clone https://github.com/karishmashuklaa/technet.git
 - `npm install` in `client` folder to install dependencies.
 - `npm run dev` to run the project.
 
+If you want to have a local db, run `docker-compose up -d`
+
+Add a `default.json` file in /config folder with something like this:
+```
+{
+  "mongoURI": "mongodb://localhost:27017/technet",
+  "jwtSecret": "secret"
+}
+```
+
 ***Thanks for reading! ⭐ Dont forget to star the [Repository](https://github.com/karishmashuklaa/technet) ⭐***

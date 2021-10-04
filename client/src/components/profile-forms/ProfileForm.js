@@ -2,6 +2,8 @@ import React, { Fragment, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import TextareaAutosize from '@mui/material/TextareaAutosize';
+import InputStyled from '../../components/common/InputStyled';
 import { createProfile, getCurrentProfile } from '../../actions/profile';
 
 const initialState = {
@@ -77,22 +79,24 @@ const ProfileForm = ({
       <small>* = required field</small>
       <form className="form" onSubmit={onSubmit}>
         <div className="form-group">
-          <input 
-          type="text" 
-          name="status" 
-          placeholder="Professional Status *"
-          value={status} 
-          onChange={onChange}
+          <InputStyled 
+            type="text" 
+            name="status"
+            size="small"
+            label="Professional Status *"
+            value={status} 
+            onChange={onChange}
           />
           <small className="form-text">
             Give us an idea of where you are at in your career
           </small>
         </div>
         <div className="form-group">
-          <input
+          <InputStyled
             type="text"
-            placeholder="Company"
+            label="Company"
             name="company"
+            size="small"
             value={company}
             onChange={onChange}
           />
@@ -101,10 +105,11 @@ const ProfileForm = ({
           </small>
         </div>
         <div className="form-group">
-          <input
+          <InputStyled
             type="text"
-            placeholder="Website"
+            label="Website"
             name="website"
+            size="small"
             value={website}
             onChange={onChange}
           />
@@ -113,10 +118,11 @@ const ProfileForm = ({
           </small>
         </div>
         <div className="form-group">
-          <input
+          <InputStyled
             type="text"
-            placeholder="Location"
+            label="Location"
             name="location"
+            size="small"
             value={location}
             onChange={onChange}
           />
@@ -125,10 +131,11 @@ const ProfileForm = ({
           </small>
         </div>
         <div className="form-group">
-          <input
+          <InputStyled
             type="text"
-            placeholder="Skills *"
+            label="Skills *"
             name="skills"
+            size="small"
             value={skills}
             onChange={onChange}
           />
@@ -137,10 +144,11 @@ const ProfileForm = ({
           </small>
         </div>
         <div className="form-group">
-          <input
+          <InputStyled
             type="text"
-            placeholder="Github Username"
+            label="Github Username"
             name="githubusername"
+            size="small"
             value={githubusername}
             onChange={onChange}
           />
@@ -150,11 +158,13 @@ const ProfileForm = ({
           </small>
         </div>
         <div className="form-group">
-          <textarea
+          <TextareaAutosize
             placeholder="A short bio of yourself"
             name="bio"
             value={bio}
             onChange={onChange}
+            style={{width: 300, padding: "1rem"}}
+            minRows={3}
           />
           <small className="form-text">Tell us a little about yourself</small>
         </div>
@@ -174,9 +184,10 @@ const ProfileForm = ({
           <Fragment>
             <div className="form-group social-input">
               <i className="fab fa-twitter fa-2x" />
-              <input
+              <InputStyled
                 type="text"
-                placeholder="Twitter URL"
+                label="Twitter URL"
+                size="small"
                 name="twitter"
                 value={twitter}
                 onChange={onChange}
@@ -185,9 +196,10 @@ const ProfileForm = ({
 
             <div className="form-group social-input">
               <i className="fab fa-facebook fa-2x" />
-              <input
+              <InputStyled
                 type="text"
-                placeholder="Facebook URL"
+                label="Facebook URL"
+                size="small"
                 name="facebook"
                 value={facebook}
                 onChange={onChange}
@@ -196,9 +208,10 @@ const ProfileForm = ({
 
             <div className="form-group social-input">
               <i className="fab fa-youtube fa-2x" />
-              <input
+              <InputStyled
                 type="text"
-                placeholder="YouTube URL"
+                label="YouTube URL"
+                size="small"
                 name="youtube"
                 value={youtube}
                 onChange={onChange}
@@ -207,9 +220,10 @@ const ProfileForm = ({
 
             <div className="form-group social-input">
               <i className="fab fa-linkedin fa-2x" />
-              <input
+              <InputStyled
                 type="text"
-                placeholder="Linkedin URL"
+                label="Linkedin URL"
+                size="small"
                 name="linkedin"
                 value={linkedin}
                 onChange={onChange}
@@ -218,9 +232,10 @@ const ProfileForm = ({
 
             <div className="form-group social-input">
               <i className="fab fa-instagram fa-2x" />
-              <input
+              <InputStyled
                 type="text"
-                placeholder="Instagram URL"
+                label="Instagram URL"
+                size="small"
                 name="instagram"
                 value={instagram}
                 onChange={onChange}

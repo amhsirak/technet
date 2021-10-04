@@ -2,7 +2,9 @@ import React , { Fragment, useState }from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import TextareaAutosize from '@mui/material/TextareaAutosize';
 import { addEducation } from '../../actions/profile'
+import InputStyled from '../../components/common/InputStyled';
 
 const AddEducation = ({ addEducation, history })=> {
 
@@ -45,9 +47,10 @@ const AddEducation = ({ addEducation, history })=> {
       <small>* = required field</small>
       <form class="form" onSubmit={onSubmit}>
         <div class="form-group">
-          <input
+          <InputStyled
             type="text"
-            placeholder="* School or Bootcamp"
+            label="* School or Bootcamp"
+            size="small"
             name="school"
             value={school}
             onChange={onChange}
@@ -55,9 +58,10 @@ const AddEducation = ({ addEducation, history })=> {
           />
         </div>
         <div class="form-group">
-          <input
+          <InputStyled
             type="text"
-            placeholder="* Degree or Certificate"
+            label="* Degree or Certificate"
+            size="small"
             name="degree"
             value={degree}
             onChange={onChange}
@@ -65,19 +69,24 @@ const AddEducation = ({ addEducation, history })=> {
           />
         </div>
         <div class="form-group">
-          <input type="text" 
-          placeholder="* Field Of Study" 
-          name="fieldofstudy"
-          value={fieldofstudy}
-          onChange={onChange}
-           required />
+          <InputStyled 
+            type="text" 
+            label="* Field Of Study" 
+            size="small"
+            name="fieldofstudy"
+            value={fieldofstudy}
+            onChange={onChange}
+            required               
+          />
         </div>
         <div class="form-group">
           <h4>From Date</h4>
-          <input type="date" 
-          name="from"
-          value={from} 
-          onChange={onChange}  
+          <InputStyled 
+            type="date" 
+            name="from"
+            size="small"
+            value={from} 
+            onChange={onChange}  
           />
         </div>
         <div class="form-group">
@@ -93,22 +102,25 @@ const AddEducation = ({ addEducation, history })=> {
         </div>
         <div class="form-group">
           <h4>To Date</h4>
-          <input type="date"
-          name="to"
-          value={to}
-          onChange={onChange}
-          disabled={current}
+          <InputStyled 
+            type="date"
+            name="to"
+            size="small"
+            value={to}
+            onChange={onChange}
+            disabled={current}
            />
         </div>
         <div class="form-group">
-          <textarea
+          <TextareaAutosize
             name="description"
             cols="30"
-            rows="5"
+            minRows="5"
+            style={{padding: "1rem"}}
             placeholder="Program Description"
             value={description}
             onChange={onChange}
-          ></textarea>
+          ></TextareaAutosize>
         </div>
         <input type="submit" class="btn btn-primary my-1" />
         <Link className="btn btn-light my-1" to="/dashboard">

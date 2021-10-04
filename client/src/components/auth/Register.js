@@ -1,9 +1,10 @@
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import React, { Fragment, useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
 import { setAlert } from '../../actions/alert';
 import { register } from '../../actions/auth';
-import PropTypes from 'prop-types';
+import InputStyled from './../../components/common/InputStyled';
 
 
 const Register = ({ setAlert,register, isAuthenticated}) => {
@@ -19,17 +20,17 @@ const Register = ({ setAlert,register, isAuthenticated}) => {
     const handleChange = e => setFormData({ ...formData, [e.target.name]: e.target.value});
 
     const onSubmit = async e => {
-        e.preventDefault();
-        if(password !== password2) {
-            setAlert('Passwords do not match', 'danger');
-        } else {
-            register({ name,email,password });
+      e.preventDefault();
+      if(password !== password2) {
+          setAlert('Passwords do not match', 'danger');
+      } else {
+          register({ name,email,password });
+      }
     }
-}
-// If user is registered
-if(isAuthenticated){
-  return <Redirect to="/dashboard" />
-};
+    // If user is registered
+    if(isAuthenticated){
+      return <Redirect to="/dashboard" />
+    };
 
     return( 
     <Fragment>
@@ -37,56 +38,53 @@ if(isAuthenticated){
         <p className="lead"><i className="fas fa-user"></i> Create Your Account</p>
         <form className="form" onSubmit={onSubmit}>
           <div className="form-group">
-            <input type="text" 
-            placeholder="Full Name" 
-            name="name" 
-            // onChange={e => handleChange(e)}
-            value={name} 
-            onChange = {handleChange} 
-            // required 
-            />
+            <InputStyled 
+              label="Full Name" 
+              variant="outlined" 
+              value={name}
+              size="small"
+              onChange = {handleChange}
+              name="name" />
           </div>
           <div className="form-group">
-            <input type="email" 
-            placeholder="Email Address" 
-            name="email"
-            value={email} 
-            onChange = {handleChange} 
-            // required 
-            />
+            <InputStyled 
+              label="Email Address"
+              variant="outlined" 
+              value={email}
+              size="small"
+              onChange = {handleChange}
+              name="email" />
             <small className="form-text"
               >This site uses Gravatar. If you want a profile image, use a
               Gravatar email</small
             >
           </div>
           <div className="form-group">
-            <input
+            <InputStyled 
               type="password"
-              placeholder="Password"
-              name="password"
-              value={password} 
-              onChange = {handleChange} 
-              // minLength="6"
-              // required
-               />
+              label="Password"
+              variant="outlined" 
+              value={password}
+              size="small"
+              onChange = {handleChange}
+              name="password" />            
               <small className="form-text"
               >Password must contain atleast 6 characters</small>
           </div>
           <div className="form-group">
-            <input
+            <InputStyled 
               type="password"
-              placeholder="Confirm Password"
-              name="password2"
-              value={password2} 
-              onChange = {handleChange} 
-              // minLength="6"
-              // required
-            />
+              label="Confirm Password"
+              variant="outlined" 
+              value={password2}
+              size="small"
+              onChange = {handleChange}
+              name="password2" />         
           </div>
           <input type="submit" className="btn btn-primary" value="Register" />
         </form>
         <p className="my-1">
-          Already have an account?
+          Already have an account? &nbsp;
           <Link to="/login">
               Sign In
           </Link>
