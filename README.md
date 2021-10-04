@@ -36,14 +36,6 @@ git clone https://github.com/karishmashuklaa/technet.git
 - `npm install` in `client` folder to install dependencies
 - `npm run dev` to run the project
 
-## Contributors 💗
-
-Thank you to everyone contributing! ❤️
-
-<a href="https://github.com/karishmashuklaa/technet/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=karishmashuklaa/technet" />
-</a>
-
 If you want to have a local db, run `docker-compose up -d`
 
 Add a `default.json` file in /config folder with something like this:
@@ -54,4 +46,13 @@ Add a `default.json` file in /config folder with something like this:
 }
 ```
 
-***Thanks for reading! ⭐ Dont forget to star the [Repository](https://github.com/karishmashuklaa/technet) ⭐***
+## Contributors 💗
+
+Thank you to everyone contributing! ❤️
+
+<a href="https://github.com/karishmashuklaa/technet/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=karishmashuklaa/technet" />
+</a>
+
+
+***Thanks for reading! ⭐ Don't forget to star the [Repository](https://github.com/karishmashuklaa/technet) ⭐***
