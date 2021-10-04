@@ -274,12 +274,8 @@ img {
 .form input[type='date'],
 .form select,
 .form textarea {
-    display: block;
-    width: 100%;
-    padding: 0.4rem;
-    padding-left: 1.8rem;
-    font-size: 1.2rem;
-    border: 1px solid #ccc;
+  display: block;
+  width: 100%;
 }
 
 .form input[type='submit'],
@@ -288,7 +284,8 @@ button {
 }
 
 .form .social-input {
-    display: flex;
+  display: flex;
+  align-items: center;
 }
 
 .form .social-input i {

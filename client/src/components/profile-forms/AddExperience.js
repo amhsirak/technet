@@ -3,6 +3,8 @@ import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addExperience } from '../../actions/profile';
+import InputStyled from '../../components/common/InputStyled';
+import TextareaAutosize from '@mui/material/TextareaAutosize';
 
 const AddExperience = ({addExperience, history}) => {
 
@@ -47,34 +49,46 @@ const AddExperience = ({addExperience, history}) => {
         <small>* = required field</small>
         <form className="form" onSubmit={onSubmit}>
           <div className="form-group">
-            <input type="text" 
-            placeholder="* Job Title" 
-            name="title" 
-            value={title}
-            onChange={onChange}
-            required />
+            <InputStyled 
+              type="text" 
+              label="* Job Title" 
+              size="small"
+              name="title" 
+              value={title}
+              onChange={onChange}
+              required             
+            />
           </div>
           <div class="form-group">
-            <input type="text" 
-            placeholder="* Company" 
-            name="company" 
-            value={company}
-            onChange={onChange}
-            required />
+            <InputStyled 
+              type="text" 
+              label="* Company" 
+              name="company" 
+              size="small"
+              value={company}
+              onChange={onChange}
+              required               
+            />
           </div>
           <div class="form-group">
-            <input type="text" 
-            placeholder="Location" 
-            name="location"
-            value={location}
-            onChange={onChange} />
+            <InputStyled 
+              type="text" 
+              label="Location" 
+              size="small"
+              name="location"
+              value={location}
+              onChange={onChange}                 
+            />
           </div>
           <div class="form-group">
             <h4>From Date</h4>
-            <input type="date" 
-            name="from"
-            value={from}
-            onChange={onChange} />
+            <InputStyled 
+              type="date" 
+              size="small"
+              name="from"
+              value={from}
+              onChange={onChange} 
+            />
           </div>
            <div class="form-group">
             <p><input type="checkbox" 
@@ -88,21 +102,25 @@ const AddExperience = ({addExperience, history}) => {
           </div>
           <div class="form-group">
             <h4>To Date</h4>
-            <input type="date"
-             name="to"
-             value={to}
-             onChange={onChange} 
-             disabled={current} />
+            <InputStyled 
+              type="date"
+              name="to"
+              size="small"
+              value={to}
+              onChange={onChange} 
+              disabled={current}                 
+            />
           </div>
           <div class="form-group">
-            <textarea
+            <TextareaAutosize
               name="description"
               cols="30"
-              rows="5"
+              minRows="5"
+              style={{padding: "1rem"}}
               placeholder="Job Description"
               value={description}
               onChange={onChange}
-            ></textarea>
+            ></TextareaAutosize>
           </div>
           <input type="submit" class="btn btn-primary my-1" />
           <Link to="/dashboard" className="btn btn-light my-1">Go Back</Link>

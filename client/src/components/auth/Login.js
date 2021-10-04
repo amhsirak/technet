@@ -1,8 +1,9 @@
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import React, { Fragment, useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import { login } from '../../actions/auth';
+import InputStyled from '../../components/common/InputStyled';
 
 const Login = ({ login,isAuthenticated }) => {
     const[formData, setFormData] = useState({
@@ -26,34 +27,31 @@ if(isAuthenticated){
 
     return (
         <Fragment>
-            <h1 className="large text-primary">Sign In</h1>
-        <p className="lead"><i className="fas fa-user"></i> Sign Into Your Account</p>
-        <form className="form" onSubmit={onSubmit}>
+          <h1 className="large text-primary">Sign In</h1>
+          <p className="lead"><i className="fas fa-user"></i> Sign Into Your Account</p>
+          <form className="form" onSubmit={onSubmit}>
          
-          <div className="form-group">
-            <div className="input-container">
-            <i class="fas fa-envelope"></i>              
-            <input type="email" 
-            placeholder="Email Address" 
-            name="email"
-            value={email} 
-            onChange = {handleChange} 
-            required />
+            <div className="form-group">
+              <InputStyled 
+                type="email" 
+                placeholder="Email Address" 
+                name="email"
+                value={email}
+                size="small"
+                onChange = {handleChange} 
+                required />
             </div>
-          </div>
-          <div className="form-group">
-            <div className="input-container">
-            <i class="fas fa-lock"></i>              
-            <input
-              type="password"
-              placeholder="Password"
-              name="password"
-              value={password} 
-              onChange = {handleChange} 
-              minLength="6"
-              required />              
-          </div>
-          </div>
+            <div className="form-group">
+              <InputStyled
+                type="password"
+                placeholder="Password"
+                name="password"
+                value={password} 
+                size="small"
+                onChange = {handleChange} 
+                minLength="6"
+                required />              
+            </div>
           <input type="submit" className="btn btn-primary" value="Login" />
         </form>
         <p className="my-1">

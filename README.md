@@ -44,4 +44,14 @@ Thank you to everyone contributing! ❤️
   <img src="https://contrib.rocks/image?repo=karishmashuklaa/technet" />
 </a>
 
-***Thanks for reading! ⭐ Don't forget to star the [Repository](https://github.com/karishmashuklaa/technet) ⭐***
+If you want to have a local db, run `docker-compose up -d`
+
+Add a `default.json` file in /config folder with something like this:
+```
+{
+  "mongoURI": "mongodb://localhost:27017/technet",
+  "jwtSecret": "secret"
+}
+```
+
+***Thanks for reading! ⭐ Dont forget to star the [Repository](https://github.com/karishmashuklaa/technet) ⭐***
