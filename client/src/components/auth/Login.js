@@ -27,31 +27,31 @@ if(isAuthenticated){
 
     return (
         <Fragment>
-            <h1 className="large text-primary">Sign In</h1>
-        <p className="lead"><i className="fas fa-user"></i> Sign Into Your Account</p>
-        <form className="form" onSubmit={onSubmit}>
+          <h1 className="large text-primary">Sign In</h1>
+          <p className="lead"><i className="fas fa-user"></i> Sign Into Your Account</p>
+          <form className="form" onSubmit={onSubmit}>
          
-          <div className="form-group">
-            <InputStyled 
-              type="email" 
-              placeholder="Email Address" 
-              name="email"
-              value={email}
-              size="small"
-              onChange = {handleChange} 
-              required />
-          </div>
-          <div className="form-group">
-            <InputStyled
-              type="password"
-              placeholder="Password"
-              name="password"
-              value={password} 
-              size="small"
-              onChange = {handleChange} 
-              minLength="6"
-              required />
-          </div>
+            <div className="form-group">
+              <InputStyled 
+                type="email" 
+                placeholder="Email Address" 
+                name="email"
+                value={email}
+                size="small"
+                onChange = {handleChange} 
+                required />
+            </div>
+            <div className="form-group">
+              <InputStyled
+                type="password"
+                placeholder="Password"
+                name="password"
+                value={password} 
+                size="small"
+                onChange = {handleChange} 
+                minLength="6"
+                required />              
+            </div>
           <input type="submit" className="btn btn-primary" value="Login" />
         </form>
         <p className="my-1">

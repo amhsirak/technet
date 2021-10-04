@@ -12,28 +12,34 @@ const Register = ({ setAlert,register, isAuthenticated}) => {
         name: '',
         email: '',
         password: '',
-        password2: ''
+        password2: '',
+        error: ''
     });
 
-    const { name,email,password,password2} = formData;
+    const { name,email,password,password2,error} = formData;
 
-    const handleChange = e => setFormData({ ...formData, [e.target.name]: e.target.value});
+    const handleChange = e => setFormData((prevState)=>({ ...prevState, error: '', [e.target.name]: e.target.value}));
 
     const onSubmit = async e => {
       e.preventDefault();
-      if(password !== password2) {
-          setAlert('Passwords do not match', 'danger');
-      } else {
-          register({ name,email,password });
+      if (!(password.length > 5)) {
+        setFormData(prevState=>({...prevState, error: 'password should be atlease 6 character long'}))
       }
+      else if (password !== password2) {        
+        setAlert('Passwords do not match', 'danger');        
+      }
+      else {
+        register({ name,email,password });
+      }      
     }
-    // If user is registered
-    if(isAuthenticated){
-      return <Redirect to="/dashboard" />
-    };
+
+// If user is registered
+if(isAuthenticated){
+  return <Redirect to="/dashboard" />
+};
 
     return( 
-    <Fragment>
+    <>
         <h1 className="large text-primary">Sign Up</h1>
         <p className="lead"><i className="fas fa-user"></i> Create Your Account</p>
         <form className="form" onSubmit={onSubmit}>
@@ -54,10 +60,9 @@ const Register = ({ setAlert,register, isAuthenticated}) => {
               size="small"
               onChange = {handleChange}
               name="email" />
-            <small className="form-text"
-              >This site uses Gravatar. If you want a profile image, use a
-              Gravatar email</small
-            >
+            <small className="form-text">
+              This site uses Gravatar. If you want a profile image, use a Gravatar email
+            </small>    
           </div>
           <div className="form-group">
             <InputStyled 
@@ -68,8 +73,7 @@ const Register = ({ setAlert,register, isAuthenticated}) => {
               size="small"
               onChange = {handleChange}
               name="password" />            
-              <small className="form-text"
-              >Password must contain atleast 6 characters</small>
+              <small className="form-text">Password must contain atleast 6 characters</small>
           </div>
           <div className="form-group">
             <InputStyled 
@@ -89,7 +93,7 @@ const Register = ({ setAlert,register, isAuthenticated}) => {
               Sign In
           </Link>
         </p>
-        </Fragment>
+      </>
     );
   };
 
