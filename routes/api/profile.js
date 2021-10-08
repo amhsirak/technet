@@ -28,7 +28,7 @@ router.get('/me' , auth, async (req,res) => {
 });
 
 // @route POST api/profile/
-// @description Create or update user profile 
+// @description Create or update user profile
 // @access Private
 
 router.post('/' , [
@@ -36,7 +36,7 @@ router.post('/' , [
     [
         check('status','Status is required').notEmpty(),
         check('skills','Skills is required').notEmpty()
-    ] 
+    ]
 ],
 async (req,res) => {
     const errors = validationResult(req);
@@ -60,7 +60,7 @@ async (req,res) => {
         instagram
       } = req.body;
 
-      // Build profile object 
+      // Build profile object
       const profileFields = {};
       profileFields.user =  req.user.id;
       if (company) profileFields.company = company;
@@ -72,8 +72,8 @@ async (req,res) => {
       if (skills) {
           profileFields.skills = skills.split(',').map(skill => skill.trim());
       }
-    
-      // Build social object 
+
+      // Build social object
       profileFields.social = {}
       if (youtube) profileFields.youtube =  youtube;
       if (twitter) profileFields.twitter = twitter;
@@ -85,7 +85,7 @@ async (req,res) => {
          let profile = await Profile.findOne({ user: req.user.id });
 
          if(profile) {
-             // Update profile 
+             // Update profile
              profile = await Profile.findOneAndUpdate(
                  { user: req.user.id },
                  { $set: profileFields },
@@ -103,11 +103,11 @@ async (req,res) => {
          console.error(err.message);
          res.status(500).send('Server Error');
       }
-} 
+}
 );
 
 // @route GET api/profile/
-// @description Get all profiles 
+// @description Get all profiles
 // @access Public
 
 router.get('/', async(req,res) => {
@@ -121,7 +121,7 @@ router.get('/', async(req,res) => {
 });
 
 // @route GET api/profile/user/:user_id
-// @description Get profile by user ID 
+// @description Get profile by user ID
 // @access Public
 
 router.get('/user/:user_id', async(req,res) => {
@@ -143,8 +143,8 @@ router.get('/user/:user_id', async(req,res) => {
 });
 
 // @route DELETE api/profile
-// @description Delete profile, user and posts 
-// @access Private 
+// @description Delete profile, user and posts
+// @access Private
 
 router.delete('/', auth, async(req,res) => {
     try {
@@ -162,14 +162,14 @@ router.delete('/', auth, async(req,res) => {
     } catch (err) {
         console.error(err.message);
         res.status(500).send('Server Error');
-    
+
     }
 });
 
 
 // @route PUT api/profile/experience
 // @description Add profile experience
-// @access Private 
+// @access Private
 router.put(
     '/experience',
     auth,
@@ -190,11 +190,11 @@ router.put(
         from,
         to,
         current,
-        description 
+        description
     } = req.body;
 
     const newExp = {
-        title,   // title: title 
+        title,   // title: title
         company,
         location,
         from,
@@ -204,11 +204,11 @@ router.put(
     }
       try {
         const profile = await Profile.findOne({ user: req.user.id });
-  
+
         profile.experience.unshift(req.body);
         // The unshift() method adds new items to the beginning of an array, and returns the new length.
         await profile.save();
-  
+
         res.json(profile);
 
       } catch (err) {
@@ -220,12 +220,12 @@ router.put(
 
 // @route DELETE api/profile/experience/exp_id
 // @description Remove profile experience
-// @access Private 
+// @access Private
 router.delete('/experience/:exp_id', auth, async(req,res) =>{
     try {
         const profile = await Profile.findOne({ user: req.user.id });
 
-        // Get index to be removed 
+        // Get index to be removed
         const removeIndex = profile.experience.map(item => item.id).indexOf(req.params.exp_id);
 
         profile.experience.splice(removeIndex,1);
@@ -242,8 +242,8 @@ router.delete('/experience/:exp_id', auth, async(req,res) =>{
 
 
 // @route PUT api/profile/education
-// @description Add profile education 
-// @access Private 
+// @description Add profile education
+// @access Private
 router.put(
     '/education',
     auth,
@@ -265,7 +265,7 @@ router.put(
         from,
         to,
         current,
-        description 
+        description
     } = req.body;
 
     const newEdu = {
@@ -279,11 +279,11 @@ router.put(
     }
       try {
         const profile = await Profile.findOne({ user: req.user.id });
-  
+
         profile.education.unshift(newEdu);
         // The unshift() method adds new items to the beginning of an array, and returns the new length.
         await profile.save();
-  
+
         res.json(profile);
 
       } catch (err) {
@@ -295,12 +295,12 @@ router.put(
 
 // @route DELETE api/profile/education/edu_id
 // @description Remove profile eeducation
-// @access Private 
+// @access Private
 router.delete('/education/:edu_id', auth, async(req,res) =>{
     try {
         const profile = await Profile.findOne({ user: req.user.id });
 
-        // Get index to be removed 
+        // Get index to be removed
         const removeIndex = profile.education.map(item => item.id).indexOf(req.params.edu_id);
 
         profile.education.splice(removeIndex,1);
@@ -323,7 +323,7 @@ router.get('/github/:username', async(req,res) => {
     try {
         const options = {
 
-            uri: `https://api.github.com/users/${req.params.username}/repos?per_page=5&sort=created:asc&client_id=${config.get('githubClientId')}&client_secret=${config.get('githubClientSecret')}`,
+            uri: `https://api.github.com/users/${req.params.username}/repos?per_page=5`,
             method: 'GET',
             headers:{'user-agent': 'node.js'}
         };
@@ -337,11 +337,11 @@ router.get('/github/:username', async(req,res) => {
 
             res.json(JSON.parse(body));
         });
-        
+
     } catch (err) {
         console.error(err.message);
         res.status(500).send('Server Error');
-        
+
     }
 });
 
